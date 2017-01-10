@@ -140,12 +140,12 @@ function foundItems(){
             onRemove:'&'
         },
         template:` 
-            <table>
+            <table class="table table-striped">
                 <tr data-ng-repeat="item in ctrl.menuItems">
                     <td>{{item.short_name}}</td>
                     <td>{{item.name}}</td>
                     <td>{{item.description}}</td>
-                    <td> 
+                    <td valign="center"> 
                         <button 
                             data-ng-click="ctrl.removeItem($index)"
                             class="btn"
