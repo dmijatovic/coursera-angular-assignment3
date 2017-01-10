@@ -117,7 +117,7 @@ function menuSearchService($http,$q){
         console.log("Search for items with...", searchTerm)
 
         filtered = serv.allItems.filter((item)=>{
-            return item.name.indexOf(searchTerm) > -1;
+            return item.description.indexOf(searchTerm.toLowerCase()) > -1;
         });
 
         return filtered;
