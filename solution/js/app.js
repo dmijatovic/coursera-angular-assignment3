@@ -5,6 +5,11 @@ let dv4app = angular.module('NarrowItDown',[
     //dependencies
 ]);
 
+//----------------------------------
+//declare URL contstant 
+dv4app
+    .constant('menuServiceURL','https://davids-restaurant.herokuapp.com/menu_items.json')
+
 //------------------------------------------
 //declaire main controller
 dv4app
@@ -64,11 +69,11 @@ function narrowItDown(scope,$q,searchService){
 dv4app
     .service('MenuSearchService',[
         //dependencies
-        '$http','$q',
+        '$http','$q','menuServiceURL',
         menuSearchService
     ]);
 //main search function 
-function menuSearchService($http,$q){
+function menuSearchService($http,$q,menuServiceURL){
     let serv = this;
 
     //test items
@@ -91,7 +96,7 @@ function menuSearchService($http,$q){
             //perform http request
             $http({
                 method:"GET",
-                url:"https://davids-restaurant.herokuapp.com/menu_items.json"
+                url: menuServiceURL
             }).then((resp)=>{
                 //load data into service holder
                 serv.allItems = resp.data.menu_items;
