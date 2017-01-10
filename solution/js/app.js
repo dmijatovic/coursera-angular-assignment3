@@ -145,7 +145,7 @@ function foundItems(){
                     <td>{{item.short_name}}</td>
                     <td>{{item.name}}</td>
                     <td>{{item.description}}</td>
-                    <td valign="center"> 
+                    <td style="text-align:right;"> 
                         <button 
                             data-ng-click="ctrl.removeItem($index)"
                             class="btn"
